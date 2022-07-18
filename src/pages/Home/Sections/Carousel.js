@@ -261,7 +261,6 @@ const DivItem = styled.div`
   height: 16.666666666666668%;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #dbdbdb;
 
   @media (min-width: 1280px){
     border-radius: 16px;
@@ -270,9 +269,14 @@ const DivItem = styled.div`
 const LiItem = styled.li`
   width: 100%;
   height: 100%;
+  transition: all 0.3s ease;
+
+  &.active{
+    background-color: rgba(255,255,255,.08);
+  }
 
   &:hover{
-    background: red
+    background-color: rgba(255,255,255,0.15);
   }
 `
 const DetailGame = styled.div`
@@ -293,22 +297,33 @@ const DetailImage = styled.div`
   flex-basis: 28px;
   z-index: 1;
   margin: 0 10px;
+
+  @media (min-width: 1024px){
+    flex-basis: 25px;
+  }
   @media (min-width: 1280px){
     flex-basis: 40px;
     border-radius: 8px;
   }
-  @media (min-width: 1024px){
-    flex-basis: 25px;
+  @media (min-width: 1440px){
+    margin: 0 15px;
   }
+  @media (min-width: 1600px){
+    flex-basis: 43.5px;
+  }
+  @media (min-width: 1920px){
+    flex-basis: 60px;
+  }
+
 `
 const ImagePadding = styled.div`
   position: relative;
   padding-bottom: calc(4 / 3 * 100%);
 `
 const ImgRight = styled.img`
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 `
 const NameDetails = styled.div`
   font-size: 12px;
@@ -321,6 +336,11 @@ const NameDetails = styled.div`
     letter-spacing: 0.2px;
     line-height: 1.4;
   }
+  @media (min-width: 1600px){
+    font-size: 16px;
+    line-height: 1.625;
+  }
+
 `
 const GridDetails = styled.div`
   display: grid;
@@ -334,10 +354,10 @@ const DetailsNameGame = styled.div`
   -webkit-line-clamp: 2;
 `
 
-const ItemRight = ({img, name}) => {
+const ItemRight = ({img, name, styleContainer}) => {
   return (
     <DivItem>
-      <LiItem>
+      <LiItem className={styleContainer}>
         <DetailGame>
           <DetailImage>
             <ImagePadding>
@@ -405,7 +425,7 @@ function Carousel() {
       </LeftCarousel>
       <RightCarousel>
         <ItemGame>
-          <ItemRight name="Summer Sale 2022" img={logoright1}/>
+          <ItemRight name="Summer Sale 2022" img={logoright1} styleContainer="active"/>
           <ItemRight name="Genshin Impact" img={logoright2}/>
           <ItemRight name="Rumbleverse" img={logoright3}/>
           <ItemRight name="Goat Simulator 3" img={logoright4}/>

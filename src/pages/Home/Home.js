@@ -26,8 +26,16 @@ function Home() {
             <div className="game-container">
               <div className="carousel-view">
                 <Carousel/>
-                <HorizontalView/>
               </div>
+              <div className="carousel-view">
+                <HorizontalView category="Summer Spotlight" nextButton="nextSummer" prevButton="prevSummer"/>
+              </div>
+              {/* <div className="carousel-view">
+                <HorizontalView category="Games with Achievements" nextButton="nextAchievements" prevButton="prevAchievements"/>
+              </div>
+              <div className="carousel-view">
+                <HorizontalView category="Recently Updated" nextButton="nextUpdated" prevButton="prevUpdated"/>
+              </div> */}
             </div>
           </div>
         </div>
