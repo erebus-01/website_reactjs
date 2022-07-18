@@ -359,7 +359,6 @@ const ItemRight = ({img, name}) => {
   )
 }
 
-
 function Carousel() {
   return (
     <CarouselContainer>
