@@ -3,7 +3,7 @@ import {
   Header, 
   SearchTop,
   Carousel,
-  // HorizontalView,
+  HorizontalView,
   // ThreeGame,
   // FreeGame,
   // GridGame,
@@ -26,6 +26,7 @@ function Home() {
             <div className="game-container">
               <div className="carousel-view">
                 <Carousel/>
+                <HorizontalView/>
               </div>
             </div>
           </div>
