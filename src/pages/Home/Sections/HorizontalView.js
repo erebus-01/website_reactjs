@@ -477,7 +477,7 @@ function HorizontalView({category, prevButton, nextButton}) {
               className="mySwiper"
             >
               <SwiperSlide>
-                <CardGame image={game1} name="Salt and Sacrifice" sale="-30%" oldPrice="₫186,000" newPrice="₫130,200" />
+                <CardGame image={game1} name="Salt and Sacrifice" sale="-29%" oldPrice="₫1,799,000" newPrice="₫1,277,290" />
               </SwiperSlide>
               <SwiperSlide>
                 <CardGame image={game2} name="Salt and Sacrifice" sale="-30%" oldPrice="₫186,000" newPrice="₫130,200" />

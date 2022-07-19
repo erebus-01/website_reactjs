@@ -56,6 +56,13 @@ import game36 from './EGS_FallGuys_Mediatonic_S2_1200x1600_1200x1600-b46b1014879
 import game37 from './wwzAfterTall_1200x1600-b7b0af3e21961a57059ec4a3019e57fb.jfif'
 import game38 from './EGS_EvilDeadTheGame_SaberInteractiveInc_S2_1200x1600-8e839d708bc638cd58c219ae38d58f6f_1200x1600-8e839d708bc638cd58c219ae38d58f6f.jfif'
 
+import posterGame1 from './egs-saints-row-gold-ed-breaker-1920x1080-6e10bc02d4cc.webp'
+import posterGame2 from './egs-ravenlok-breaker-1920x1080-aab3474bd1a2.jpg'
+import posterGame3 from './egs-rl-007-breaker-1248x702-bb3767891d83.jpg'
+import posterGame4 from './egs-disneyspeedstorm-gameloft-s1-2560x1440-2560x1440-73a80566e018.webp'
+import posterGame5 from './egs-ghostbusters-spirits-unleashed-breaker-1920x1080-b53fec0db4ff.webp'
+import posterGame6 from './en-13br-summerlegends-egs-carousel-1920x1080-1920x1080-431ff6f8d3da.jpg'
+
 export {
   img1,
   img2,
@@ -111,4 +118,10 @@ export {
   game36,
   game37,
   game38,
+  posterGame1,
+  posterGame2,
+  posterGame3,
+  posterGame4,
+  posterGame5,
+  posterGame6,
 }

@@ -4,7 +4,7 @@ import {
   SearchTop,
   Carousel,
   HorizontalView,
-  // ThreeGame,
+  TwoGame,
   // FreeGame,
   // GridGame,
   // Achievements,
@@ -29,6 +29,9 @@ function Home() {
               </div>
               <div className="carousel-view">
                 <HorizontalView category="Summer Spotlight" nextButton="nextSummer" prevButton="prevSummer"/>
+              </div>
+              <div className="carousel-view">
+                <TwoGame/>
               </div>
               {/* <div className="carousel-view">
                 <HorizontalView category="Games with Achievements" nextButton="nextAchievements" prevButton="prevAchievements"/>
