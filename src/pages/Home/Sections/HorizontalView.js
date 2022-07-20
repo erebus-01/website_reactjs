@@ -364,7 +364,15 @@ const TwoPrice = styled.div`
     margin-left: 10px;
   }
 `
-
+const ButtonPlusExport = () => {
+  return (
+    <ButtonPlus>
+      <CirclePlus>
+        <SpinnerPlus></SpinnerPlus>
+      </CirclePlus>
+    </ButtonPlus>
+  )
+}
 
 const CardGame = ({ name, image, sale, oldPrice, newPrice }) => {
   return (
@@ -593,3 +601,4 @@ function HorizontalView({category, prevButton, nextButton}) {
 }
 
 export default HorizontalView
+export {ButtonPlusExport}

@@ -24,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
   a{
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
   }
   input, label, select, button, textarea {
     margin: 0;

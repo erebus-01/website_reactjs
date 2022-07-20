@@ -63,6 +63,11 @@ import posterGame4 from './egs-disneyspeedstorm-gameloft-s1-2560x1440-2560x1440-
 import posterGame5 from './egs-ghostbusters-spirits-unleashed-breaker-1920x1080-b53fec0db4ff.webp'
 import posterGame6 from './en-13br-summerlegends-egs-carousel-1920x1080-1920x1080-431ff6f8d3da.jpg'
 
+import bigPoster1 from './EpicPromo_July2022_1200x1600 ENG LIVE WEEK_1200x1600-2f22b37a90f745035190899fc58b70db.webp'
+import bigPoster2 from './download-wonder-boy-the-dragons-trap-offer-e0awf.webp'
+import bigPoster3 from './download-shop-titans-offer-hnme7.webp'
+import bigPoster4 from './EGS_Tannenberg_M2HBlackmillGames_S4_1200x1600-6a68dbd9a3765682e954deb3343ec76e.webp'
+
 export {
   img1,
   img2,
@@ -124,4 +129,8 @@ export {
   posterGame4,
   posterGame5,
   posterGame6,
+  bigPoster1,
+  bigPoster2,
+  bigPoster3,
+  bigPoster4,
 }

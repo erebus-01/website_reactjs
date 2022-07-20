@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {
   posterGame1,
-  posterGame2,
-  posterGame3,
-  posterGame4,
-  posterGame5,
-  posterGame6,
+  posterGame2
 } from "../../Home/assets";
 
 const FlexTwo = styled.div`
@@ -330,7 +326,6 @@ function TwoGame() {
           image={posterGame2} 
           name="Ravenlok - Coming Soon" 
           description="Experience the fairytale reimagining of a kingdom troubled by an evil queen and a young girl’s destiny to fulfill a dangerous prophecy." 
-          price=""
         />
       </FlexTwo>
     </div>
