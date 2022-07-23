@@ -1,4 +1,5 @@
 import React from 'react'
+import {THEMES} from '../../../Theme/ColorTheme.js'
 import styled from 'styled-components'
 import {ButtonLink} from './FreeGame.js'
 import {
@@ -65,7 +66,7 @@ const ElementGrid = styled.li`
     padding: 0 16px;
   }
   &:not(:last-child){
-    border-right: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid ${THEMES.white41};
   }
 `
 const FlexGrid = styled.div`
@@ -88,7 +89,7 @@ const TopGrid = styled.div`
   }
 `
 const TitleGrid = styled.h2`
-  color: rgb(245,245,245);
+  color: ${THEMES.white245};
   font-size: 18px;
   line-height: 25px;
   letter-spacing: -0.2px;
@@ -148,7 +149,7 @@ const PaddingCard = styled.div`
     bottom: 0;
     content: '';
     display: block;
-    background-color: rgba(255,255,255,0.1);
+    background-color: ${THEMES.white41};
     opacity: 0;
     border-radius: 16px;
     pointer-events: none;
@@ -186,7 +187,7 @@ const BgImage = styled.div`
   height: 64px;
   border-radius: 4px;
   overflow: hidden;
-  background: linear-gradient(to bottom, rgb(43,43,43), rgb(32,32,32));
+  background: linear-gradient(to bottom, ${THEMES.black43}, ${THEMES.black32});
 
   @media (min-width: 1440px){
     width: 60px;
@@ -230,7 +231,7 @@ const DesCard = styled.div`
   width: 100%;
 `
 const SpanName = styled.span`
-  color: rgb(245,245,245);
+  color: ${THEMES.white245};
   font-size: 14px;
   font-weight: normal;
   line-height: 20px;
@@ -261,7 +262,7 @@ const SaleLeft = styled.div`
   display: flex;
 `
 const SaleSpan = styled.span`
-  color: rgb(245,245,245);
+  color: ${THEMES.white245};
   font-size: 9px;
   line-height: 15px;
   letter-spacing: 1px;
@@ -279,8 +280,8 @@ const BgSale = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  background-color: rgb(0, 116,228);
-  color: rgb(245,245,245);
+  background-color: ${THEMES.blue116};
+  color: ${THEMES.white245};
   padding: 5px 10px;
   position: relative;
   border-radius: 4px;
@@ -297,7 +298,7 @@ const GamePrice = styled.div`
 `
 const TextOldPrice = styled.span`
   transition: color 125ms ease-in-out;
-  color: rgb(245,245,245,0.6);
+  color: ${THEMES.white06};
   font-size: 12px;
   line-height: 15px;
   letter-spacing: 0;
@@ -312,7 +313,7 @@ const OldPrice = styled.div`
 `
 const NewPrice = styled.span`
   transition: color 125ms ease-in-out;
-  color: rgb(245,245,245);
+  color: ${THEMES.white245};
   font-size: 12px;
   line-height: 15px;
   letter-spacing: 0;
@@ -338,7 +339,7 @@ const EpicFlex = styled.div`
 `
 const SpanEpic = styled.span`
   transition: color 125ms ease-in-out;
-  color: rgb(245,245,245);
+  color: ${THEMES.white245};
   font-size: 9px;
   line-height: 15px;
   letter-spacing: 1px;
@@ -355,8 +356,8 @@ const ButtonEpic = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  background-color: rgba(255,255,255,0.1);
-  color: rgb(245,245,245);
+  background-color: ${THEMES.white41};
+  color: ${THEMES.white245};
   padding: 5px 10px;
   position: relative;
   border-radius: 4px;

@@ -7,12 +7,10 @@ import {
   TwoGame,
   FreeGame,
   GridGame,
-  // Achievements,
-  // UpdateGame,
-  // Catalog,
-  // Footer
+  FixedView,
+  Catalog,
+  Footer
 } from './Sections'
-
 import './style.css'
 
 function Home() {
@@ -54,10 +52,17 @@ function Home() {
               <div className="carousel-view">
                 <HorizontalView category="Most Popular" nextButton="nextPopular" prevButton="prevPopular"/>
               </div>
+              <div className="carousel-view">
+                <FixedView/>
+              </div>
+              <div className="carousel-view">
+                <Catalog/>
+              </div>
             </div>
           </div>
         </div>
       </main>
+      <Footer/>
     </>
   )
 }

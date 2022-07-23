@@ -1,4 +1,5 @@
 import React from "react";
+import {THEMES} from '../../../Theme/ColorTheme.js'
 import styled from "styled-components";
 import {
   posterGame1,
@@ -36,7 +37,7 @@ const PlusPosition = styled.div`
 `;
 const ButtonPlus = styled.div`
   position: relative;
-  color: rgb(245, 245, 245);
+  color: ${THEMES.white245};
   width: 44px;
   height: 44px;
   display: flex;
@@ -45,9 +46,9 @@ const ButtonPlus = styled.div`
 `;
 const CirclePlus = styled.div`
   align-items: center;
-  background-color: rgb(18, 18, 18);
+  background-color: ${THEMES.black18};
   border-radius: 50%;
-  border: 2px solid rgb(245, 245, 245);
+  border: 2px solid ${THEMES.white245};
   box-shadow: none;
   display: flex;
   flex: 0 0 auto;
@@ -68,7 +69,7 @@ const SpinnerPlus = styled.div`
     left: 0;
     top: 0;
     right: 0;
-    background: rgb(245, 245, 245);
+    background: ${THEMES.white245};
     margin: auto;
   }
 
@@ -94,7 +95,7 @@ const BgImage = styled.div`
   height: 100%;
   position: relative;
   border-radius: 16px;
-  background: rgb(18, 18, 18);
+  background: ${THEMES.black18};
 `;
 const LinkCard = styled.a`
   text-decoration: none;
@@ -108,7 +109,7 @@ const LinkCard = styled.a`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(245, 245, 245, 0.1);
+    background-color: ${THEMES.white41};
     pointer-events: none;
     opacity: 0;
   }
@@ -158,7 +159,7 @@ const LinkName = styled.a`
   text-decoration: none;
 `;
 const TextName = styled.h2`
-  color: rgb(245, 245, 245);
+  color: ${THEMES.white245};
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0.2px;
@@ -191,7 +192,7 @@ const Description = styled.div`
   flex: 1;
 `;
 const TextDescription = styled.span`
-  color: rgba(245, 245, 245, 0.6);
+  color: ${THEMES.white06};
   font-size: 14px;
   font-weight: normal;
   line-height: 20px;
@@ -232,7 +233,7 @@ const Flex = styled.div`
   display: flex;
 `;
 const SpanPrice = styled.span`
-  color: rgb(245, 245, 245);
+  color: ${THEMES.white245};
   font-size: 18px;
   line-height: 25px;
   letter-spacing: -0.2px;

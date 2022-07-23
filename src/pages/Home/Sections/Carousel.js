@@ -20,7 +20,7 @@ import {
   logoright5,
   logoright6,
 } from '../assets'
-
+import {THEMES} from '../../../Theme/ColorTheme.js'
 const CarouselContainer = styled.div`
   font-weight: 500;
   display: flex;
@@ -63,7 +63,7 @@ const ContainerImage = styled.div`
   height: 100%;
   width: 100%;
   position: relative;
-  color: rgb(245, 245, 245);
+  color: ${THEMES.white245};
   cursor: pointer;
 
   a{
@@ -203,15 +203,15 @@ const ButtonBottom = styled.a`
   display: inline-flex;
   position: relative;
   border-radius: 4px;
-  color: rgb(245, 245, 245);
+  color: ${THEMES.white245};
   text-transform: uppercase;
   text-align: center;
   align-items: center;
   justify-content: center;
   line-height: 15px;
   padding: 0 20px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
+  background-color: ${THEMES.white255};
+  color: ${THEMES.black0};
   height: 50px;
   width: auto;
   min-width: auto;
@@ -272,11 +272,11 @@ const LiItem = styled.li`
   transition: all 0.3s ease;
 
   &.active{
-    background-color: rgba(255,255,255,.08);
+    background-color: ${THEMES.white01};
   }
 
   &:hover{
-    background-color: rgba(255,255,255,0.15);
+    background-color: ${THEMES.white41};
   }
 `
 const DetailGame = styled.div`
@@ -329,7 +329,7 @@ const NameDetails = styled.div`
   font-size: 12px;
   letter-spacing: 0.17px;
   line-height: 1.5;
-  color: rgb(245, 245, 245);
+  color: ${THEMES.white245};
   z-index: 1;
   @media (min-width: 1440px){
     font-size: 14px;

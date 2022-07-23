@@ -5,8 +5,7 @@ import HorizontalView from "./HorizontalView.js";
 import TwoGame from "./TwoGame.js";
 import FreeGame from "./FreeGame.js";
 import GridGame from "./GridGame.js";
-import Achievements from "./Achievements.js";
-import UpdateGame from "./UpdateGame.js";
+import FixedView from "./FixedView.js";
 import Catalog from "./Catalog.js";
 import Footer from "./Footer.js";
 
@@ -18,8 +17,7 @@ export {
   TwoGame, 
   FreeGame, 
   GridGame, 
-  Achievements, 
-  UpdateGame, 
+  FixedView,
   Catalog, 
   Footer
 };

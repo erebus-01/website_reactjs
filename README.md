@@ -4,3 +4,4 @@ npm i styled-components
 yarn add @fontsource/urbanist
 yarn add @fontsource/open-sans
 npm install boxicons --save
+npm install bootstrap

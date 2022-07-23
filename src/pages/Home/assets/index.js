@@ -68,6 +68,8 @@ import bigPoster2 from './download-wonder-boy-the-dragons-trap-offer-e0awf.webp'
 import bigPoster3 from './download-shop-titans-offer-hnme7.webp'
 import bigPoster4 from './EGS_Tannenberg_M2HBlackmillGames_S4_1200x1600-6a68dbd9a3765682e954deb3343ec76e.webp'
 
+import CatalogImage from './egs-featured-titles-blade-16x9-1920x1080-aaf6937d52da.jpg'
+
 export {
   img1,
   img2,
@@ -133,4 +135,5 @@ export {
   bigPoster2,
   bigPoster3,
   bigPoster4,
+  CatalogImage
 }

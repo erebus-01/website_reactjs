@@ -1,4 +1,5 @@
 import React from 'react'
+import {THEMES} from '../../../Theme/ColorTheme.js'
 import styled from 'styled-components'
 import {
   game1,
@@ -43,7 +44,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import SwiperCore, { Navigation } from 'swiper';
 
 const Content = styled.div`
 
@@ -65,7 +66,7 @@ const TopLeft = styled.div`
 const Title = styled.div`
   display: flex;
   align-items: center;
-  color: rgb(245,245,245);
+  color: ${THEMES.white245};
   font-size: 18px;
   line-height: 1.4;
 `
@@ -76,6 +77,17 @@ const SvgSpan = styled.span`
   height: 8px;
   display: flex;
   transition: all 125ms ease-in-out;
+`
+const Link = styled.a`
+  &:hover{
+    ${SvgSpan}{
+      margin-left: 5px;
+      -webkit-transform: translateX(4px);
+      -moz-transform: translateX(4px);
+      -ms-transform: translateX(4px);
+      transform: translateX(4px);
+    }
+  }
 `
 const TopRight = styled.div`
   display: flex;
@@ -106,7 +118,7 @@ const ButtonNavigate = styled.button`
     content: '';
     transition: all 125ms ease-in-out;
     position: absolute;
-    background-color: rgb(32,32,32);
+    background-color: ${THEMES.black32};
     width: 100%;
     height: 100%;
     border-radius: 100%;
@@ -150,7 +162,7 @@ const OverPlus = styled.div`
 `
 const ButtonPlus = styled.button`
   position: relative;
-  color: rgb(245,245,245);
+  color: ${THEMES.white245};
   width: 44px;
   height: 44px;
   display: flex;
@@ -159,9 +171,9 @@ const ButtonPlus = styled.button`
 `
 const CirclePlus = styled.div`
   align-items: center;
-  background-color: rgb(18,18,18);
+  background-color: ${THEMES.black18};
   border-radius: 50%;
-  border: 2px solid rgba(245,245,245);
+  border: 2px solid ${THEMES.white245};
   box-shadow: 0px 0px 6px rgb(0 0 0 / 60%);
   display: flex;
   flex: 0 0 auto;
@@ -176,7 +188,7 @@ const SpinnerPlus = styled.div`
 
   &::after,
   &::before{
-    background: rgb(245, 245, 245);
+    background: ${THEMES.white245};
     bottom: 0;
     content: "";
     left: 0;
@@ -240,8 +252,8 @@ const ImageGame = styled.div`
 const BgImage = styled.div`
   position: relative;
   padding-bottom: calc(4 / 3 * 100%);
-  background: linear-gradient(to bottom, rgb(43,43,43), rgb(32,32,32));
-  color: rgba(245,245,245, 0.6);
+  background: linear-gradient(to bottom, ${THEMES.black43}, ${THEMES.black32});
+  color: ${THEMES.white06};
   overflow: hidden;
   border-radius: 4px;
 
@@ -284,12 +296,54 @@ const ContentGame = styled.div`
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 0;
+  @media (min-width: 1600px){
+    font-size: 16px;
+    line-height: 1.4;
+  }
+`
+const NewEpic = styled.div`
+  margin-top: 5px;
+`
+const EpicFlex = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: -5px;
+
+  span {
+    margin-top: 5px;
+  }
+`
+const SpanEpic = styled.span`
+  transition: color 125ms ease-in-out;
+  color: ${THEMES.white245};
+  font-size: 9px;
+  line-height: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  @media (min-width: 1600px){
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+`
+const ButtonEpic = styled.div`
+  display: inline-block;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: ${THEMES.white41};
+  color: ${THEMES.white245};
+  padding: 5px 10px;
+  position: relative;
+  border-radius: 4px;
 `
 const ColorContent = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: rgb(245,245,245);
+  color: ${THEMES.white245};
   display: block;
 `
 const NameGame = styled.div`
@@ -310,7 +364,7 @@ const SalePrice = styled.div`
 `
 const SpanSale = styled.span`
   transition: all 125ms ease-in-out;
-  color: rgb(245,245,245);
+  color: ${THEMES.white245};
   font-size: 9px;
   line-height: 15px;
   letter-spacing: 1px;
@@ -327,22 +381,39 @@ const PercentSale = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  background-color: rgb(0, 116, 228);
-  color: rgb(245,245,245);
+  background-color: ${THEMES.blue116};
+  color: ${THEMES.white245};
   padding: 5px 10px;
   position: relative;
   border-radius: 4px;
 `
 const Price = styled.span`
-  margin-left: 10px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
+
+  &.ml-10{
+    margin-left: 10px;
+  }
+`
+const SpanNewPrice = styled.span`
+  transition: color 125ms ease-in-out;
+  color: ${THEMES.white245};
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+
+  @media (min-width: 1600px){
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
+  }
 `
 const SpanOldPrice = styled.span`
   transition: color 125ms ease-in-out;
-  color: rgba(245, 245, 245, 0.6);
+  color: ${THEMES.white06};
   font-size: 14px;
   font-weight: normal;
   line-height: 20px;
@@ -374,7 +445,31 @@ const ButtonPlusExport = () => {
   )
 }
 
-const CardGame = ({ name, image, sale, oldPrice, newPrice }) => {
+const DesCard = ({desSale, desOldPrice, desNewPrice}) => {
+  return (
+    <PriceGame>
+      <PriceMargin>
+        {desSale && <SalePrice>
+          <SpanSale>
+            <PercentSale>{desSale}</PercentSale>
+          </SpanSale>
+        </SalePrice>}
+        <Price className={desSale ? "ml-10" : ""}>
+          <TwoPrice>
+            <SpanOldPrice>
+              <DisplayOld>{desOldPrice}</DisplayOld>
+            </SpanOldPrice>
+          </TwoPrice>
+          <TwoPrice className={desOldPrice ? "ml-10" : ""}>
+            <SpanNewPrice>{desNewPrice}</SpanNewPrice>
+          </TwoPrice>
+        </Price>
+      </PriceMargin>
+    </PriceGame>
+  )
+}
+
+const CardGame = ({ name, image, newEpic, sale, oldPrice, newPrice }) => {
   return (
     <div>
       <div>
@@ -393,25 +488,16 @@ const CardGame = ({ name, image, sale, oldPrice, newPrice }) => {
                   <ColorContent>
                     <NameGame>{name}</NameGame>
                   </ColorContent>
-                  <PriceGame>
-                    <PriceMargin>
-                      <SalePrice>
-                        <SpanSale>
-                          <PercentSale>{sale}</PercentSale>
-                        </SpanSale>
-                      </SalePrice>
-                      <Price>
-                        <TwoPrice>
-                          <SpanOldPrice>
-                            <DisplayOld>{oldPrice}</DisplayOld>
-                          </SpanOldPrice>
-                        </TwoPrice>
-                        <TwoPrice className="ml-10">
-                          <SpanOldPrice>{newPrice}</SpanOldPrice>
-                        </TwoPrice>
-                      </Price>
-                    </PriceMargin>
-                  </PriceGame>
+                  {newEpic && <NewEpic>
+                    <EpicFlex>
+                      <SpanEpic>
+                        <ButtonEpic>
+                          <span>NEW TO EPIC</span>
+                        </ButtonEpic>
+                      </SpanEpic>
+                    </EpicFlex>
+                  </NewEpic>}
+                  <DesCard desSale={sale} desOldPrice={oldPrice} desNewPrice={newPrice}/>
                 </ContentGame>
               </InCard>
             </ContentCard>
@@ -434,14 +520,14 @@ const TopContent = ({ title, prev, next }) => {
   return (
     <>
       <TopLeft>
-        <a href="">
+        <Link>
           <Title>
             {title}
             <SvgSpan>
               <Arrow />
             </SvgSpan>
           </Title>
-        </a>
+        </Link>
       </TopLeft>
       <TopRight>
         <ButtonTop className={prev}>
@@ -488,7 +574,7 @@ function HorizontalView({category, prevButton, nextButton}) {
                 <CardGame image={game1} name="Salt and Sacrifice" sale="-29%" oldPrice="₫1,799,000" newPrice="₫1,277,290" />
               </SwiperSlide>
               <SwiperSlide>
-                <CardGame image={game2} name="Salt and Sacrifice" sale="-30%" oldPrice="₫186,000" newPrice="₫130,200" />
+                <CardGame image={game2} name="Salt and Sacrifice" newEpic sale="-30%" oldPrice="₫186,000" newPrice="₫130,200" />
               </SwiperSlide>
               <SwiperSlide>
                 <CardGame image={game3} name="Salt and Sacrifice" sale="-30%" oldPrice="₫186,000" newPrice="₫130,200" />
@@ -569,7 +655,7 @@ function HorizontalView({category, prevButton, nextButton}) {
                 <CardGame image={game30} name="Salt and Sacrifice" sale="-30%" oldPrice="₫186,000" newPrice="₫130,200" />
               </SwiperSlide>
               <SwiperSlide>
-                <CardGame image={game13} name="Salt and Sacrifice" sale="-30%" oldPrice="₫186,000" newPrice="₫130,200" />
+                <CardGame image={game31} name="Salt and Sacrifice" sale="-30%" oldPrice="₫186,000" newPrice="₫130,200" />
               </SwiperSlide>
               <SwiperSlide>
                 <CardGame image={game32} name="Salt and Sacrifice" sale="-30%" oldPrice="₫186,000" newPrice="₫130,200" />
@@ -601,4 +687,4 @@ function HorizontalView({category, prevButton, nextButton}) {
 }
 
 export default HorizontalView
-export {ButtonPlusExport}
+export {ButtonPlusExport, CardGame}

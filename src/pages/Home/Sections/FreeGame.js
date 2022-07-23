@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {THEMES} from '../../../Theme/ColorTheme.js'
 import styled from "styled-components";
 import { Presents } from "../../../svg";
 import {
@@ -11,7 +11,7 @@ import {
 
 const BgFree = styled.div`
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.1);
+  background: ${THEMES.white41};
   border-radius: 4px;
   position: relative;
   padding-top: 30px;
@@ -20,6 +20,10 @@ const BgFree = styled.div`
   @media (min-width: 768px) {
     padding-left: 30px;
     padding-right: 30px;
+  }
+  @media (min-width: 1024px){
+    padding-left: 40px;
+    padding-right: 40px
   }
 `;
 const TopHeader = styled.div`
@@ -32,7 +36,7 @@ const TopHeader = styled.div`
 const TitleTop = styled.h2`
   display: flex;
   align-items: center;
-  color: rgb(245, 245, 245);
+  color: ${THEMES.white245};
   font-size: 18px;
   line-height: 1.4px;
 `;
@@ -54,7 +58,7 @@ const ButtonLink = styled.a`
   display: inline-flex;
   position: relative;
   border-radius: 4px;
-  color: rgb(245, 245, 245);
+  color: ${THEMES.white245};
   text-transform: uppercase;
   text-align: center;
   align-items: center;
@@ -62,7 +66,7 @@ const ButtonLink = styled.a`
   line-height: 15px;
   padding: 0 20px;
   background-color: transparent;
-  border: 1px solid rgba(245, 245, 245, 0.6);
+  border: 1px solid ${THEMES.white06};
   height: 34px;
   width: auto;
   min-height: auto;
@@ -93,7 +97,7 @@ const ButtonLink = styled.a`
     bottom: 0;
     border-radius: 4px;
     transition: opacity 200ms ease;
-    background-color: rgb(255, 255, 255);
+    background-color: ${THEMES.white255};
     opacity: 0;
   }
 
@@ -159,12 +163,10 @@ const TopCard = styled.div`
 const BgImage = styled.div`
   position: relative;
   padding-bottom: calc(4 / 3 * 100%);
-  background: linear-gradient(to bottom, rgb(43, 43, 43), rgb(32, 32, 32));
-  color: rgba(245, 245, 245, 0.6);
+  background: linear-gradient(to bottom, ${THEMES.black43}, ${THEMES.black32});
+  color: ${THEMES.white06};
   overflow: hidden;
   border-radius: 4px;
-`;
-const PictureAfter = styled.div`
   &::after {
     content: "";
     width: 100%;
@@ -178,6 +180,9 @@ const PictureAfter = styled.div`
     z-index: 1;
     border-radius: 0;
     transition: opacity 125ms ease-in-out;
+  }
+  &:hover::after {
+    opacity: 0.1;
   }
 `;
 const ImageCard = styled.img`
@@ -205,17 +210,17 @@ const TextBtn = styled.div`
   line-height: 1.33333;
   font-weight: 700;
   text-transform: uppercase;
-  color: rgb(255, 255, 255);
+  color: ${THEMES.white255};
   display: block;
   padding: 5px;
   text-align: center;
   width: 100%;
 
   &.blue{
-    background-color: rgb(0, 120, 242);
+    background-color: ${THEMES.blue120};
   }
   &.black{
-    background-color: rgb(0, 0, 0);
+    background-color: ${THEMES.black0};
   }
 
 `;
@@ -238,7 +243,7 @@ const Title = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: rgb(245, 245, 245);
+  color: ${THEMES.white245};
   display: block;
 `;
 const DivText = styled.div`
@@ -249,7 +254,7 @@ const DivText = styled.div`
 const SubTitle = styled.span`
   display: block;
   font-weight: 400;
-  color: rgba(245, 245, 245, 0.6);
+  color: ${THEMES.white06};
   margin-top: 5px;
 `;
 const Card = ({image, name, soon, date}) => {
@@ -262,9 +267,7 @@ const Card = ({image, name, soon, date}) => {
               <ColumnCard>
                 <TopCard>
                   <BgImage>
-                    <PictureAfter>
-                      <ImageCard src={image} />
-                    </PictureAfter>
+                    <ImageCard src={image} />
                   </BgImage>
                   <ButtonFree>
                     <PositionBtn>
