@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import { search as SearchIcon } from '../../../svg'
 
 const Search = styled.div`
   height: 100px;
   background-color: rgb(18, 18, 18);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  /* &.sticky {
+    position: fixed;
+    width: 100%;
+  } */
 `
 
 const Container = styled.div`
@@ -84,7 +91,7 @@ const InputCenter = styled.div`
   align-items: center;
   display: flex;
   width: 100%;
-  height: 100%
+  height: 100%;
 `
 
 const SearchInput = styled.input`
@@ -176,8 +183,24 @@ const Options = styled.div`
 `
 
 const SearchTop = () => {
+  // useEffect(() => {
+  //   const search = document.getElementById('span-search');
+  //   const sticky = search.offsetTop;
+  //   const scrollCallback = window.addEventListener("scroll", () => {
+  //     if(window.pageYOffset > sticky){
+  //       search.classList.add("sticky");
+  //     }
+  //     else{
+  //       search.classList.remove("sticky");
+  //     }
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", scrollCallback);
+  //   }
+  // }, [])
+
   return (
-    <Search>
+    <Search id="span-search">
       <Container>
         <InputSearch>
           <Input>

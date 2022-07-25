@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { THEMES } from '../../../Theme/ColorTheme.js'
 import styled from 'styled-components'
 import "@fontsource/open-sans"
@@ -6,26 +6,49 @@ import logo from '../../../assets/logo-white.svg'
 import 'boxicons'
 
 const Section = styled.section`
-  position: relative;
   width: 100%;
-  height: 3.7em;
+  height: 52px;
+  align-self: left;
   top: 0;
   z-index: 1000;
-  background-color: #2A2A2A;
 `
-
+const Relative = styled.div`
+  background: ${THEMES.black32};
+  position: relative
+`
+const TagHeader = styled.header`
+  background: #2a2a2a;
+  font-size: 14px!important;
+  height: 3.7em;
+  line-height: 1.42857143;
+  position: static!important;
+`
 const NavBar = styled.nav`
-  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: visible;
+  font-size: 100%;
+  z-index: 9999;
+  max-width: 100%;
+  background-color: #2a2a2a;
+  color: #e7e7e7;
+  height: 3.7em;
+`
+const Left = styled.div`
   height: 3.7em;
   padding: 0;
 `
-
-const Left = styled.div`
-  margin-right: auto;
-`
-
 const Right = styled.div`
   height: 3.7em;
+  list-style: none;
+  padding: 0 0 0 1em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  z-index: 6;
 `
 
 const Logo = styled.a`
@@ -39,28 +62,34 @@ const Logo = styled.a`
   background-size: 35px auto;
   outline: 0!important;
 `
-
 const Box = styled.div`
   cursor: pointer;
   float: left;
   height: 3.7em;
   overflow: hidden;
   width: 5em;
+  transition: opacity .2s ease-out;
 `
-
 const BoxMenu = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  display: inline-block;
+  float: left;
   height: 100%;
   padding: 0 30px;
   pointer-events: auto;
   position: relative;
-  -webkit-transition: .1s;
-  -o-transition: .1s;
   transition: .1s;
   cursor: pointer;
   opacity: 1;
+  transition: opacity .2s ease-in-out;
+
+  &.active{
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:hover{
+    border: 1px solid red;
+  }
 
   span{
     border-radius: 2.14286px;
@@ -71,8 +100,6 @@ const BoxMenu = styled.div`
     margin-top: -1px;
     position: absolute;
     top: 50%;
-    -webkit-transition: .1s;
-    -o-transition: .1s;
     transition: .1s;
     width: 30px;
     background-color: #e7e7e7;
@@ -106,11 +133,9 @@ const BoxMenu = styled.div`
     background-color: #e7e7e7;
   }
 `
-
 const BgButton = {
   background: "#0078f2"
 }
-
 const ButtonRight = styled.div`
   cursor: pointer;
   float: left;
@@ -120,7 +145,6 @@ const ButtonRight = styled.div`
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 `
-
 const Download = styled.a`
   font-family: "Open Sans", sans-serif;
   display: block;
@@ -150,7 +174,6 @@ const Download = styled.a`
   }
 
 `
-
 const Contact = styled.div`
   font-family: "Open Sans", sans-serif;
   display: block;
@@ -201,35 +224,159 @@ const Contact = styled.div`
   }
 `
 
+/* overlay */
+const Overlay = styled.div`
+  background-color: rgba(0,0,0,0.75);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 3.7em;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  cursor: default;
+  padding: 1em;
+  transition: opacity 0.3s cubic-bezier(.075, .82, 1, 1) ;
+  z-index: -1;
+
+  &:hover{
+    outline: 1px solid hsla(0,0%,80%,.5)!important;
+    outline-offset: -6px;
+    text-decoration: none;
+  }
+`
+const SideBarUl = styled.ul`
+  height: 100vh;
+  position: absolute;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color:  #2a2a2a;
+  float: left;
+  top: 3.7em;
+  width: 90.75vw;
+  list-style-type: none;
+  list-style: none;
+  z-index: 3;
+  transition: transform .2s cubic-bezier(.075,.82,1,1),-webkit-transform .2s cubic-bezier(.075,.82,1,1);
+
+  &.active{
+    transform: translateZ(0);
+  }
+
+  &#ultab{
+    list-style:none;
+    width: 90.75vw;
+  }
+`
+const ContentLi = styled.li`
+  clear: both;
+  display: block;
+  float: none;
+  height: auto;
+  width: 100%;
+  border-bottom: 1px solid;
+  padding: 1em 2em;
+  visibility: visible;
+  color: #fff;
+  padding-right: 0!important;
+  position: relative;
+  border-color: #333!important;
+
+  &::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    height: 5px;
+    background-color: transparent;
+    transition: height .2s ease-in-out;
+    z-index: -1;
+  }
+`
+const LiLink = styled.a`
+  font-size: 1.5em;
+  height: 20px;
+  max-height: 40px;
+  text-align: left;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  color: #ccc;
+  display: block;
+  letter-spacing: 0.075em;
+  padding: 0 1em;
+  text-transform: uppercase;
+
+  div {
+    font-size: 0.75em;
+    font-weight: 400;
+    color: #e7e7e7;
+    text-shadow: none;
+  }
+`
+
+const LinkSidebar = ({ title }) => {
+  return (
+    <ContentLi>
+      <LiLink>
+        <div>{title}</div>
+      </LiLink>
+    </ContentLi>
+  )
+}
+
 const Header = () => {
+
+  const [sidebar, setSidebar] = useState(false);
+  const showSidebar = () => setSidebar(sidebar => !sidebar);
+  const closeSidebar = () => setSidebar(false)
+
   return (
     <Section id="header">
-      <NavBar>
-        <Left>
-          <Box>
-            <Logo/>
-          </Box>
-          <BoxMenu>
-            <span></span>
-          </BoxMenu>
-        </Left>
-        <Right>
-          <ButtonRight>
-            <Contact>
-            <i className='bx bx-globe' ></i>
-            </Contact>
-          </ButtonRight>
-          <ButtonRight>
-            <Contact>
-              <i className='bx bxs-user' ></i>
-              <span className='use-name'>hiepham001</span>
-            </Contact>
-          </ButtonRight>
-          <ButtonRight style={BgButton}>
-            <Download><span className='download'>Download</span></Download>
-          </ButtonRight>
-        </Right>
-      </NavBar>
+      <Relative>
+        <TagHeader>
+          <NavBar>
+            <Left>
+              <Box>
+                <Logo />
+              </Box>
+              <BoxMenu onClick={showSidebar} className={sidebar ? "active" : ''}>
+                <span></span>
+              </BoxMenu>
+              {sidebar && <div active={setSidebar}>
+                <Overlay onClick={closeSidebar} />
+                <SideBarUl id="ultab" className={sidebar ? "active" : ''}>
+                  <LinkSidebar title="Store" />
+                  <LinkSidebar title="FAQ" />
+                  <LinkSidebar title="Help" />
+                  <LinkSidebar title="Unreal engine" />
+                </SideBarUl>
+              </div>}
+            </Left>
+            <Right>
+              <ButtonRight>
+                <Contact>
+                  <i className='bx bx-globe' ></i>
+                </Contact>
+              </ButtonRight>
+              <ButtonRight>
+                <Contact>
+                  <i className='bx bxs-user' ></i>
+                  <span className='use-name'>hiepham001</span>
+                </Contact>
+              </ButtonRight>
+              <ButtonRight style={BgButton}>
+                <Download><span className='download'>Download</span></Download>
+              </ButtonRight>
+            </Right>
+          </NavBar>
+        </TagHeader>
+      </Relative>
     </Section>
   )
 }

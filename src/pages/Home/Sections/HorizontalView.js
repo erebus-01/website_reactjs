@@ -44,7 +44,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import SwiperCore, { Navigation } from 'swiper';
+import SwiperCore, { Navigation , Parallax } from 'swiper';
 
 const Content = styled.div`
 
