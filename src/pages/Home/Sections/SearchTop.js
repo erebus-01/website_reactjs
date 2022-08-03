@@ -123,16 +123,55 @@ const Choose = styled.div`
   flex-shrink: 1;
   width: 100%;
   height: 100%;
-  
-  span{
-    color: rgb(245, 245, 245, 0.6);
-  }
 `
 
 const Ul = styled.ul`
   display: flex;
   align-items: center;
   height: 100%;
+`
+const Opacity = styled.div`
+  width: 100%;
+  opacity: 0.4;
+  transition: opacity 125ms ease-in-out;
+
+  &:hover{
+    opacity: 1;
+  }
+`
+
+const Item = styled.a`
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 1px;
+  
+  &.active {
+    ${Opacity}{
+      opacity: 1;
+    }
+  }
+
+  &.active::before{
+    transition: border 125ms ease-in-out;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    pointer-events: none;
+  }
 `
 
 const Li = styled.li`
@@ -146,25 +185,27 @@ const Li = styled.li`
   }
 `
 
-const Item = styled.a`
-  text-align: left;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  color: currentcolor;
-  pointer-events: none;
-  padding: 10px;
-  cursor: pointer;
-  color: rgb(245, 245, 245, 0.6);
+
+const TextEllipsis = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  flex-shrink: 1;
+`
+
+const Span = styled.span`
+  transition: color 125ms ease-in-out;
+  color: rgb(245, 245, 245);
   font-size: 14px;
   font-weight: normal;
   line-height: 20px;
-  letter-spacing: 1px;
-  
-  &.active {
-    color: rgb(245, 245, 245);
+  letter-spacing: 0.2px;
+
+  @media (min-width: 1600px) {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
   }
 `
 
@@ -223,17 +264,35 @@ const SearchTop = () => {
             <Ul>
               <Li>
                 <div>
-                  <Item className='active'>Discover</Item>
+                  <Item className="active">
+                    <Opacity>
+                      <TextEllipsis>
+                        <Span>Discover</Span>
+                      </TextEllipsis>
+                    </Opacity>
+                  </Item>
                 </div>
               </Li>
               <Li>
                 <div>
-                  <Item>Browse</Item>
+                <Item>
+                    <Opacity>
+                      <TextEllipsis>
+                        <Span>Browse</Span>
+                      </TextEllipsis>
+                    </Opacity>
+                  </Item>
                 </div>
               </Li>
               <Li>
                 <div>
-                  <Item>News</Item>
+                  <Item>
+                    <Opacity>
+                      <TextEllipsis>
+                        <Span>News</Span>
+                      </TextEllipsis>
+                    </Opacity>
+                  </Item>
                 </div>
               </Li>
             </Ul>
@@ -241,8 +300,24 @@ const SearchTop = () => {
         </Choose>
         <Cart>
           <Options>
-            <div><Item>Wishlist</Item></div>
-            <div><Item>Cart</Item></div>
+            <div>
+              <Item>
+                <Opacity>
+                  <TextEllipsis>
+                    <Span>Wishlist</Span>
+                  </TextEllipsis>
+                </Opacity>
+              </Item>
+            </div>
+            <div>
+              <Item>
+                <Opacity>
+                  <TextEllipsis>
+                    <Span>Cart</Span>
+                  </TextEllipsis>
+                </Opacity>
+              </Item>
+            </div>
           </Options>
         </Cart>
       </Container>

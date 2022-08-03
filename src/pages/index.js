@@ -1,3 +1,5 @@
 import Home from './Home/Home.js'
+import Browse from './Browse/Browse.js'
+import News from './News/News.js'
 
-export {Home}
+export {Home, Browse, News}
