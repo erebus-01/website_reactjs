@@ -14,7 +14,7 @@ const Section = styled.section`
 `
 const Relative = styled.div`
   background: ${THEMES.black32};
-  position: relative
+  position: relative;
 `
 const TagHeader = styled.header`
   background: #2a2a2a;
@@ -134,7 +134,7 @@ const BoxMenu = styled.div`
   }
 `
 const BgButton = {
-  background: "#0078f2"
+  background: "#0078f2",
 }
 const ButtonRight = styled.div`
   cursor: pointer;

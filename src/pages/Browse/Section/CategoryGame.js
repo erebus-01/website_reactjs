@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { THEMES } from "../../../Theme/ColorTheme.js";
-import { search as SearchIcon } from "../../../svg";
+import { Search as SearchIcon } from "../../../svg";
 import { Drop as DropIcon, Arrow } from "../../../svg";
 import { CardGame } from "../../Home/Sections/HorizontalView.js";
 import CategoreList from '../data/CategoreList.js'
@@ -442,6 +442,7 @@ const Pagination = () => {
     </NavPagination>
   )
 } 
+
 const CategoryGame = () => {
 
   const [show, setShow] = useState(false);

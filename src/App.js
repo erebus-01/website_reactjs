@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalStyles from './Theme/GlobalStyles.js';
-import {Home, Browse, News} from './pages'
+import {Home, Browse, News, DetailsGame, Wishlist} from './pages'
 
 function App() {
   return (
@@ -8,7 +8,9 @@ function App() {
       <GlobalStyles/>
       {/* <Home/> */}
       {/* <Browse/> */}
-      <News/>
+      {/* <News/> */}
+      {/* <DetailsGame/> */}
+      <Wishlist />
     </>
   );
 }

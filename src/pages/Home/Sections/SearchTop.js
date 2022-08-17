@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components';
-import { search as SearchIcon } from '../../../svg'
+import { Search as SearchIcon } from '../../../svg'
 
 const Search = styled.div`
   height: 100px;
