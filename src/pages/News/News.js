@@ -9,13 +9,7 @@ const News = () => {
 
   return (
     <>
-      <HeaderFooter
-        containerContent={
-          <>
-            <NewsUpdate />
-          </>
-        }
-      />
+      <NewsUpdate />
     </>
   )
 }

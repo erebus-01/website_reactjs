@@ -326,6 +326,15 @@ const ButtonContentShow = styled.button`
 
   text-align: left;
 
+  &.active{
+    {
+      opacity: 1;
+      ${SpanContentShow}::after {
+        opacity: 1;
+      }
+    }
+  }
+
   &:hover {
     opacity: 1;
     ${SpanContentShow}::after {
@@ -447,43 +456,12 @@ const CategoryGame = () => {
 
   const [show, setShow] = useState(false);
   const [drop, setDrop] = useState(false);
+  const [dropdownValue, setDropdownValue] = useState("New Release");
 
   const showHandler = () => {
     setShow(show => !show)
   }
-  const dropHandler = () => {
-    setDrop(drop => !drop)
-  }
 
-  useEffect(() => console.log(drop), [drop]);
-
-  const Dropdown = ({ title, DATA }) => {
-    return (
-      <LineFilter>
-        <RowDrop>
-          <ButtonShow onClick={dropHandler}>
-            <TextButton>{title}</TextButton>
-            <SvgSpan>
-              <DropIcon />
-            </SvgSpan>
-          </ButtonShow>
-        </RowDrop>
-        <ContentDrop style={{display: `${drop ? 'block' : 'none'}}`}}>
-          <DivNone>
-            {DATA.map((item, index) => {
-              return (
-                <div key={index}>
-                  <DropItem>
-                    <ContentItem>{item.content}</ContentItem>
-                  </DropItem>
-                </div>
-              );
-            })}
-          </DivNone>
-        </ContentDrop>
-      </LineFilter>
-    );
-  };
   const DropTest = ({ title, DATA, handleDropdown, id, dropdown }) => {
     const ref = useRef();
     useEffect(() => {
@@ -522,15 +500,22 @@ const CategoryGame = () => {
       </LineFilter>
     );
   };
-  const AllContentDrop = ({ title }) => {
+
+  const AllContentDrop = ({ title, onClick }) => {
     return (
-      <ButtonContentShow>
+      <ButtonContentShow onClick={() => handleSetDropContent(`${title}`)} className={dropdownValue === title ? 'active' : ''}>
         <SpanContentShow>
           <span>{title}</span>
         </SpanContentShow>
       </ButtonContentShow>
     );
   };
+
+  const handleSetDropContent = (value) => {
+    setDropdownValue(value)
+    setShow(show => !show);
+  }
+
   const handleDropdown = id => {
     if (drop === id) {
         setDrop(null);
@@ -584,7 +569,7 @@ const CategoryGame = () => {
                       <span>Show:</span>
                     </FirstDrop>
                     <SecondDrop>
-                      <span>New Release</span>
+                      <span>{dropdownValue}</span>
                     </SecondDrop>
                     <ThirdDrop  style={{
                       transition: "transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) 0s",

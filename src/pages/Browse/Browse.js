@@ -10,14 +10,8 @@ const Browse = () => {
 
   return (
     <>
-      <HeaderFooter
-        containerContent={
-          <>
-            <HorizontalCategories category="Popular Genres" nextButton="nextSummer" prevButton="prevSummer" />
-            <CategoryGame />
-          </>
-        }
-      />
+      <HorizontalCategories category="Popular Genres" nextButton="nextSummer" prevButton="prevSummer" />
+      <CategoryGame />
     </>
   )
 }

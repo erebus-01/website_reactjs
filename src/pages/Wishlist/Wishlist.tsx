@@ -8,13 +8,7 @@ const Wishlist = () => {
   })
   return (
     <>
-      <HeaderFooter
-        containerContent={
-          <>
-            <ContainerWishlist />
-          </>
-        }
-      />
+      <ContainerWishlist />
     </>
   )
 }

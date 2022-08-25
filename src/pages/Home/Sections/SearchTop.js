@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import {Link, Route, Routes, NavLink} from 'react-router-dom'
 import { Search as SearchIcon } from '../../../svg'
 
 const Search = styled.div`
@@ -13,7 +14,6 @@ const Search = styled.div`
     width: 100%;
   } */
 `
-
 const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
@@ -23,7 +23,6 @@ const Container = styled.div`
   height: 100%;
   justify-content: 'space-between';
 `
-
 const InputSearch = styled.div`
   display: flex;
   align-items: center;
@@ -174,6 +173,40 @@ const Item = styled.a`
   }
 `
 
+const ItemLink = styled(NavLink)`
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 1px;
+  
+  &.active {
+    ${Opacity}{
+      opacity: 1;
+    }
+  }
+
+  &.active::before{
+    transition: border 125ms ease-in-out;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    pointer-events: none;
+  }
+`
+
 const Li = styled.li`
   display: flex;
 
@@ -223,22 +256,42 @@ const Options = styled.div`
   align-items: center;
 `
 
+const LinkLi = ({to, children, ...props}) => {
+  return (
+      <div>
+        <ItemLink 
+          className={isActive => isActive ? 'active' : ''}
+          to={to} 
+          {...props}
+        >
+          <Opacity>
+            <TextEllipsis>
+              <Span>{children}</Span>
+            </TextEllipsis>
+          </Opacity>
+        </ItemLink>
+      </div>
+  )
+}
+
 const SearchTop = () => {
-  // useEffect(() => {
-  //   const search = document.getElementById('span-search');
-  //   const sticky = search.offsetTop;
-  //   const scrollCallback = window.addEventListener("scroll", () => {
-  //     if(window.pageYOffset > sticky){
-  //       search.classList.add("sticky");
-  //     }
-  //     else{
-  //       search.classList.remove("sticky");
-  //     }
-  //   });
-  //   return () => {
-  //     window.removeEventListener("scroll", scrollCallback);
-  //   }
-  // }, [])
+  /*
+  useEffect(() => {
+    const search = document.getElementById('span-search');
+    const sticky = search.offsetTop;
+    const scrollCallback = window.addEventListener("scroll", () => {
+      if(window.pageYOffset > sticky){
+        search.classList.add("sticky");
+      }
+      else{
+        search.classList.remove("sticky");
+      }
+    });
+    return () => {
+      window.removeEventListener("scroll", scrollCallback);
+    }
+  }, [])
+  */
 
   return (
     <Search id="span-search">
@@ -262,62 +315,16 @@ const SearchTop = () => {
         <Choose>
           <span>
             <Ul>
-              <Li>
-                <div>
-                  <Item className="active">
-                    <Opacity>
-                      <TextEllipsis>
-                        <Span>Discover</Span>
-                      </TextEllipsis>
-                    </Opacity>
-                  </Item>
-                </div>
-              </Li>
-              <Li>
-                <div>
-                <Item>
-                    <Opacity>
-                      <TextEllipsis>
-                        <Span>Browse</Span>
-                      </TextEllipsis>
-                    </Opacity>
-                  </Item>
-                </div>
-              </Li>
-              <Li>
-                <div>
-                  <Item>
-                    <Opacity>
-                      <TextEllipsis>
-                        <Span>News</Span>
-                      </TextEllipsis>
-                    </Opacity>
-                  </Item>
-                </div>
-              </Li>
+              <Li><LinkLi to="/discover">Discover</LinkLi></Li>
+              <Li><LinkLi to="/browse">Browse</LinkLi></Li>
+              <Li><LinkLi to="/news">News</LinkLi></Li>
             </Ul>
           </span>
         </Choose>
         <Cart>
           <Options>
-            <div>
-              <Item>
-                <Opacity>
-                  <TextEllipsis>
-                    <Span>Wishlist</Span>
-                  </TextEllipsis>
-                </Opacity>
-              </Item>
-            </div>
-            <div>
-              <Item>
-                <Opacity>
-                  <TextEllipsis>
-                    <Span>Cart</Span>
-                  </TextEllipsis>
-                </Opacity>
-              </Item>
-            </div>
+            <LinkLi to="/wishlist">Wishlist</LinkLi>
+            <LinkLi to="/cart">Cart</LinkLi>
           </Options>
         </Cart>
       </Container>
